@@ -16,6 +16,7 @@ function getInfo(){
 //getInfo();
 
 
+
 $('select').hide();
 $('#estados').show();
 $('#empty').show();
@@ -51,73 +52,82 @@ function getInfo(url){
     fetch(url)
     .then(res => res.json())
     .then(data => {
-        var elem = document.getElementById('weather');
+        var icon_weather = document.getElementById('icon-weather');
+        var info_weather = document.getElementById('info-weather');
+        var wind = document.getElementById('wind');
+        var temp_max = document.getElementById('temp-max');
+        var temp_min = document.getElementById('temp-min');
         var icon = data.weather[0].icon;
         var newIcon;
         switch(icon){
             case'01d':
-                newIcon = `<i class="wi wi-day-sunny"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-day-sunny"></i>`;
             break;
             case'02d':
-                newIcon = `<i class="wi wi-day-cloudy"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-day-cloudy"></i>`;
             break;
             case'03d':
-                newIcon = `<i class="wi wi-cloud"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-cloud"></i>`;
             break;
             case'04d':
-                newIcon = `<i class="wi wi-cloudy"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-cloudy"></i>`;
             break;
             case'09d':
-                newIcon = `<i class="wi wi-showers"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-showers"></i>`;
             break;
             case'10d':
-                newIcon = `<i class="wi wi-rain"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-rain"></i>`;
             break;
             case'11d':
-                newIcon = `<i class="wi wi-thunderstorm"></i>`;
+                newIcon = `<i id='new_icon'class="wi wi-thunderstorm"></i>`;
             break;
             case'13d':
-                newIcon = `<i class="wi wi-snowflake-cold"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-snowflake-cold"></i>`;
             break;
             case'50d':
-                newIcon = `<i class="wi wi-dust"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-dust"></i>`;
             break;
             case'01n':
-                newIcon = `<i class="wi wi-night-clear"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-night-clear"></i>`;
             break;
             case'02n':
-                newIcon = `<i class="wi wi-night-alt-cloudy"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-night-alt-cloudy"></i>`;
             break;
             case'03n':
-                newIcon = `<i class="wi wi-cloud"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-cloud"></i>`;
             break;
             case'04n':
-                newIcon = `<i class="wi wi-cloudy"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-cloudy"></i>`;
             break;
             case'09n':
-                newIcon = `<i class="wi wi-showers"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-showers"></i>`;
             break;
             case'10n':
-                newIcon = `<i class="wi wi-rain"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-rain"></i>`;
             break;
             case'11n':
-                newIcon = `<i class="wi wi-thunderstorm"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-thunderstorm"></i>`;
             break;
             case'13n':
-                newIcon = `<i class="wi wi-snowflake-cold"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-snowflake-cold"></i>`;
             break;
             case'50n':
-                newIcon = `<i class="wi wi-dust"></i>`;
+                newIcon = `<i id='new_icon' class="wi wi-dust"></i>`;
             break;
         }
-
-        elem.innerHTML =//`<img src='http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png'>` +
-                        newIcon +
-                        `<p><br>Temperatura</br>${data.main.temp}</p>`+
-                        `<p><br>Temperatura Mínima</br>${data.main.temp_min}</p>`+
-                        `<p><br>Temperatura Máxima</br>${data.main.temp_max}</p>`+
-                        `<p><br>Velocidad</br>${data.wind.speed}</p>`+
-                        `<img src='http://openweathermap.org/img/wn/10d@2x.png'>`;
+        console.log(data.main.temp)
+        var textTemp = '';
+        if(data.main.temp < 15){
+            textTemp = 'Mayormente Nublado';
+        }else{
+            textTemp = 'Mayormente Soleado';
+        }
+        icon_weather.innerHTML = `<p>${newIcon}</p>` ;
+        info_weather.innerHTML = `<p class='tam'>${data.main.temp}<i class='wi wi-degrees tam'></i></p><p class='leyenda'><b>${textTemp}</b></p>`;
+        wind.innerHTML = `<p><i class='wi wi-strong-wind'></i></p><p><b>${data.wind.speed}<i class='wi wi-degrees'></i> km/h</b></p>`; 
+        temp_max.innerHTML = `<p><i class='wi wi-thermometer'></i></p><p><b>${data.main.temp_max}<i class='wi wi-degrees'></i>C</b></p>`;
+        temp_min.innerHTML = `<p><i class='wi wi-thermometer-exterior'></i></p><p><b>${data.main.temp_min}<i class='wi wi-degrees'></i>C</b></p>`;
+                        
         console.log(data)
         
     })

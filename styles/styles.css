@@ -1,5 +1,37 @@
+body {
+  margin-top: 15px;
+}
+
+.div_busqueda {
+  padding-right: -50px;
+}
+
 p {
-  color: red;
+  font-size: 36px;
   font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+  border: 1px solid red;
+}
+
+#new_icon {
+  padding-left: 280px;
+  padding-top: 50px;
+  font-size: 140px;
+}
+
+.tam {
+  margin-top: 15px;
+  font-size: 80px;
+  margin-bottom: -25px;
+}
+
+.leyenda {
+  font-size: 30px;
+}
+
+#principal {
+  margin-bottom: 125px;
 }
 /*# sourceMappingURL=styles.css.map */

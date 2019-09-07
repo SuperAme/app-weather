@@ -44,8 +44,8 @@ $("#estados").on("change",function(e){
 $("#busqueda").click(function(){
     var icon = `<i class="wi wi-dust"></i>`;
     var ciudad = $('.estados option:selected').text();
-    url = 'http://api.openweathermap.org/data/2.5/weather?q='+ciudad+'&units=metric&APPID=6deb54b7826625462379de7db3d85c43';
-    console.log(url)
+    url = 'https://api.openweathermap.org/data/2.5/weather?q='+ciudad+'&units=metric&APPID=6deb54b7826625462379de7db3d85c43';
+    //console.log(url)
     getInfo(url);
 })
 function getInfo(url){

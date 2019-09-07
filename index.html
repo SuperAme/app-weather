@@ -6,14 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/weather-icons-wind.css">
+    <link rel="stylesheet" href="styles/weather-icons.css">
+    <link rel="stylesheet" href="styles/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="styles/weather-icons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container">        
+
         <div class="form-row align-items-center">
-            <div class="col">
+            <button id="busqueda" class="btn btn-primary">Buscar</button>
+            <div class="col">                
                 <select id="estados" class="form-control" name="estados">
                     <option value="0">Todo México</option>            
                     <option value="1">Aguascalientes</option>            
@@ -111,7 +118,7 @@
                 <select name="" id="" class="form-control"></select>
                 <select name="" id="" class="form-control"></select>
             </div> 
-            <button id="busqueda" class="btn btn-primary">Buscar</button>          
+            
         </div>
         <div id="weather">
             
